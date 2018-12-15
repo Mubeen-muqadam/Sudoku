@@ -60,6 +60,18 @@ void buildSubGridBitMap(int *grid)
 {
     int i=0, j=0;
 	
+	for(i=0;i<3;i++)
+	{
+	    for(j=0;j<3;j++)
+	    {
+		     subGridMap[i][j]=0x1FF;
+		}
+	}	
+    for(i=0;i<9;i++)
+	    for(j=0;j<9;j++) 
+		{
+			       BIT_RESET(subGridMap[i/3][j/3], *(grid+(i*9)+j));	
+		}  
 }
 
 
@@ -109,7 +121,8 @@ void buildGridBitMap(int *pgrid)
 	
 	buildRowBitMap(pgrid);
 	buildColumnBitMap(pgrid);
-		
+	buildSubGridBitMap(pgrid);
+	
 	for(i=0; i < 9; i++)
 	{	
 		for(j=0; j< 9; j++)
@@ -118,7 +131,7 @@ void buildGridBitMap(int *pgrid)
 			       gridBitMap[i][j] = 0;
               else
 			  {
-				   gridBitMap[i][j] = rowBitMap[i] & columnBitmap[j];	
+				   gridBitMap[i][j] = rowBitMap[i] & columnBitmap[j] & subGridMap[i/3][j/3];	
 			   }
 		} 
     }
