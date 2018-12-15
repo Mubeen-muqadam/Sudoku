@@ -118,7 +118,7 @@ void buildGridBitMap(int *pgrid)
 			       gridBitMap[i][j] = 0;
               else
 			  {
-				   gridBitMap[i][j] = rowBitMap[i] & columnBitmap[j] & subGridMap[i/3][j/3];	
+				   gridBitMap[i][j] = rowBitMap[i] & columnBitmap[j];	
 			   }
 		} 
     }
@@ -149,7 +149,7 @@ void scanAndPopulate()
 		     {
 			     if (!copygrid[i][j] && TEST_ONLY_BIT_SET(gridBitMap[i][j]))
 			     {
-			 	      //printf("%d, %d has found a value , debug : bitmap=0x%x\n", i, j, gridBitMap[i][j]);
+
 				     // cell (i,j) has confirmed digit at this point, we should populate this and update respective row and column Bitmaps
 					 copygrid[i][j]=getDigitfromBitmask( gridBitMap[i][j]);
 					 buildGridBitMap((int *) copygrid);
