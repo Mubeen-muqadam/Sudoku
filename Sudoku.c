@@ -169,7 +169,7 @@ void scanAndPopulate()
 
 				     // cell (i,j) has confirmed digit at this point, we should populate this and update respective row and column Bitmaps
 					 copygrid[i][j]=getDigitfromBitmask( gridBitMap[i][j]);
-					 buildGridBitMap((int *) copygrid);
+					 buildGridBitMap((int *) copygrid); /// this is probably not optimized solution can anything be done better?
 					 resultFound=1;
 					 //printGrid((int *) copygrid);
 			     }
