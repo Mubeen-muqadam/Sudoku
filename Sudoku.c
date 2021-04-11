@@ -7,7 +7,7 @@
 
 int grid[9][9]= {     
         {0, 7, 6,  0, 5, 0, 1, 4,0},
-		{0, 0, 0, 0, 0, 0, 0, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 0, 0},
         {8, 3, 0, 7, 0, 6, 0 , 5, 9},
         {0, 8, 4, 0, 0, 0,  7, 3, 0},
         {0, 0, 0, 3, 0, 8, 0, 0, 0},
@@ -16,9 +16,13 @@ int grid[9][9]= {
         {0, 0, 0, 0, 0, 0, 0, 0, 0},
         {0, 2, 9, 0, 7, 0, 8, 1, 0}
         };
-		
+/*we calculate the bitmaps of each Row, column and cells of each sub matrix,
+the bit map contains remaining digits in row, column and sub matrix respectively*/
+/*When only one bit remains in Bitmap that is digit which belongs to the particular position (row,colum)*/
+/* code iteratively finds only digit in the cell then updates all bitmaps by clearing the digit in the bitmap*/
+
 int gridBitMap[9][9];
-int subGridMap[3][3];
+int subGridMap[3][3];// there are 9 sub matrices, this 
 int rowBitMap[9];
 int columnBitmap[9];		
 		
